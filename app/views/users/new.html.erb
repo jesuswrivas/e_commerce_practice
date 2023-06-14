@@ -1,0 +1,68 @@
+<div class="container-fluid mt-5 w-50">
+
+
+    <div class="container mb-5">
+        <h1>Fill up your information</h1>
+    
+    
+    
+    </div>
+    
+    
+    <div class="container border p-5">
+    
+    
+        <%= form_with model: @user do |form| %>
+        
+                               
+          <div class="row mb-2">
+              <div class="col-6">
+                  <%= form.label :name, "Name", class: "form-label" %>
+                  <%= form.text_field :name, class: "form-control", placeholder: "John"  %>
+
+              <% if @user.errors[:name].any? %>
+                   <div class="alert alert-danger">
+                   asdads
+                        <%= @user.errors.full_messages_for(:name).join(", ") %>
+                     </div>
+                <% end %>
+
+              </div>
+              <div class="col-6">
+                  <%= form.label :last_name, "Last Name", class: "form-label" %>
+                  <%= form.text_field :last_name, class: "form-control", placeholder: "Doe" %>
+              </div>
+          </div>
+    
+            
+        <div class="row mb-2">
+            <div class="col-6">
+                <%= form.label :email, "Email", class: "form-label"  %>
+                <%= form.text_field :email, class: "form-control", placeholder: "john_doe@gmail.com"  %>
+    
+            </div>
+        </div>
+    
+        
+        <div class="row">
+    
+              <div class="col">
+                  <%= form.label :password, "Password",class: "form-label"   %>
+                  <%= form.password_field :password, class: "form-control" %>
+                  <div class="form-text">
+                 Your password must be 8-20 characters long.
+                </div>
+              </div>
+              <div class="col">
+                  <%= form.label :password_confirmation, "Confirm Password", class: "form-label"  %>
+                  <%= form.password_field :password_confirmation, class: "form-control" %>
+              </div>
+    
+        </div>
+
+    </div>
+          <%= form.submit "Create Account", class:"btn btn-primary mt-5" %>
+        <% end %>
+
+</div>
+
