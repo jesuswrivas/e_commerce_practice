@@ -19,11 +19,20 @@ class UsersController < ApplicationController
         if @user.save
             redirect_to home_path
         else
-            render :new
+            flash[:alert] = "Please check the text fields for any error"
+            render :new, status: :unprocessable_entity
         end
 
 
     end
+
+    
+
+
+
+
+
+
 
     def edit
 

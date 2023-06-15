@@ -1,0 +1,7 @@
+<div class="container text-danger" >
+    <% if user.errors.include?(attribute) %>
+        <% user.errors.full_messages_for(attribute).each do |message| %>
+           <%= message %><br>
+        <% end %>
+    <% end %>
+</div>
