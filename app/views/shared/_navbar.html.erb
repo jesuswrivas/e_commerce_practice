@@ -1,8 +1,25 @@
 <!-- As a heading -->
-<nav class="navbar bg-body-tertiary">
+<nav class="navbar bg-body-tertiary flex-nowrap">
+
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Navbar</span>
+    <span class="navbar-brand">Navbar</span>
   </div>
+
+  <div class="container-fluid d-flex justify-content-end">
+
+    <% if session[:user_id]%>
+         <span>Logged in as :  
+        <b><%= User.find_by(id:(session[:user_id])).name%></b>
+        </span>
+        <% else %>
+         <span>Logged in as :  
+        <b>Guest</b>
+        </span>
+    <% end %>
+
+  </div>
+
+
 </nav>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary ">
@@ -46,8 +63,13 @@
           <%= link_to "Profile", profile_path, class: "navbar-link-custom"  %>
         </li>
 
+
         <li class="nav-item">
-          <%= link_to "Log in", log_in_path, class: "navbar-link-custom"  %>
+           <% if session[:user_id]%>
+              <%= link_to "Log out", log_out_path, class: "navbar-link-custom", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>      
+           <% else %>
+            <%= link_to "Log in", log_in_path, class: "navbar-link-custom"  %>
+          <% end %>
         </li>
         
           <li class="nav-item">

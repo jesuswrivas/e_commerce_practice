@@ -10,11 +10,12 @@ class SessionsController < ApplicationController
       if @user&.authenticate(params[:password])
         # Successful login
         session[:user_id] = @user.id
+        flash[:notice] = 'User logged in succesfully'
         redirect_to root_path, notice: 'Logged in successfully.'
       else
         # Failed login
-        # flash.now[:alert] = 'Invalid email or password.'
-        render :new
+        flash.now[:alert] = 'Invalid email or password.'
+        render "pages/log_in", status: :unprocessable_entity
       end
 
 

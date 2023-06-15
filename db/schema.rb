@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_145523) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_170403) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_145523) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "last_name"
+    t.integer "role", default: 0
   end
 
   add_foreign_key "reviews", "products"
