@@ -22,4 +22,8 @@ class PagesController < ApplicationController
     end
 
 
+    def log_in
+    end
+
+
 end
