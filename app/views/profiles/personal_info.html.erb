@@ -1,1 +1,57 @@
-<h1>Personal info</h1>
+<div class="container-fluid w-75 mt-5">
+
+<div class="container mb-5">
+    <div class="row">
+        <h2>Account Information</h2>
+        <div class="col-4 m-0 p-0">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item"> Email</li>
+            <li class="list-group-item">Account</li>
+            </ul>
+        </div>
+         <div class="col-8 m-0 p-0">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= @user.email %> </li>
+            <li class="list-group-item"><%= @user.role %> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <h2>Personal Information</h2>
+        <div class="col-4 m-0 p-0">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">Name</li>
+            <li class="list-group-item">Last Name</li>
+            <li class="list-group-item">Phone Number</li>
+            <li class="list-group-item">Address 1</li>
+            <li class="list-group-item">Address 2</li>
+            </ul>
+        </div>
+           <div class="col-8 m-0 p-0">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= @user.name %> </li>
+            <li class="list-group-item"><%= @user.last_name %> </li>
+            <li class="list-group-item">-</li>
+            <li class="list-group-item">-</li>
+            <li class="list-group-item">-</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
