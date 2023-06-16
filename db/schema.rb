@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_15_170403) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_221311) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name"
+    t.string "email"
+    t.date "date_of_birth"
+    t.string "country"
+    t.string "string"
+    t.string "address_1"
+    t.string "address_2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -40,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_170403) do
     t.integer "role", default: 0
   end
 
+  add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
 end

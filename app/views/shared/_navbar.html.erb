@@ -60,7 +60,9 @@
   <div class="container-fluid d-flex justify-content-end">
        <ul class="navbar-nav ">
          <li class="nav-item">
-          <%= link_to "Profile", profile_path, class: "navbar-link-custom"  %>
+          <% if session[:user_id] %>
+            <%= link_to "Profile", profile_path, class: "navbar-link-custom"  %>
+          <% end %>   
         </li>
 
 
@@ -73,8 +75,8 @@
         </li>
         
           <li class="nav-item">
-          <%= link_to "Create Account", new_user_path, class: "navbar-link-custom"  %>
-        </li>
+            <%= link_to "Create Account", new_user_path, class: "navbar-link-custom"  %>
+         </li>
       </ul>
   
   </div>
