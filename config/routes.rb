@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"
   get "/home", to: "pages#home"
-  get "/products", to: "pages#products"
   get "/log_in", to: "pages#log_in"
+
+  
+
 
   #Routes for Sessions controller
   resources :sessions, only: [:new, :create]
