@@ -27,32 +27,37 @@
             </div>
 
       </div>
-      <div class="col-2 custom-product-buttons d-flex flex-column ms-5">
+      <div class="col-2 custom-product-actions d-flex flex-column ms-5">
 
         <div>
-          <div class= "custom-product-buttons-price"><span>$<%= @product.price %></span></div>
-          <div class= "custom-product-buttons-stock"><span>Only <%= @product.quantity %> left in stock</span></div>
+          <div class= "custom-product-actions-price mb-2"><span>$<%= @product.price %></span></div>
+
+          
+          <div class= "custom-product-actions-qty"><span>There are <%= @product.quantity %> left in stock</span></div>
         </div>
 
-        <div>
-               
-        
+        <div class= "custom-product-actions-stock mt-5 text-end" >
+            <% if @product.quantity > 0%>
+              <span class="custom-text-success">In Stock</span>
+              <% else %>
+              <span class="custom-text-danger">Sold Out</span>
+            <% end %>
         </div>
 
-        <div>
-        
-        
+        <div class= "d-flex align-items-center justify-content-end mb-4">
+        <span>Qty:</span>
+      <select class="form-select w-25 ms-2">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+
         </div>
 
-
-        <div>
-          <button type="button" class="btn btn-primary">Buy</button>
-          <button type="button" class="btn btn-warning">Add to Cart</button>
+        <div class= "d-flex flex-column justify-content-center h-100">
+          <button type="button" class="custom-product-buttons-btn btn_cart mb-1">Add to Cart</button>
+          <button type="button" class="custom-product-buttons-btn btn_buy">Buy</button>
         </div>
-
-
-
-
 
       </div>
     </div>

@@ -145,15 +145,38 @@ body, html{
     border-bottom: 1px solid rgb(222, 226, 230);
 }
 
-.custom-product-buttons{
+.custom-product-actions{
 
     border: 1px solid rgb(222, 226, 230);
 }
 
-.custom-product-buttons-price{
+.custom-product-actions-price{
    font-size: 2rem; 
 }
-.custom-product-buttons-stock{
+.custom-product-actions-qty{
     color: #7e7e7e;
 
+}
+
+.custom-text-success{
+    color: green;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+
+.custom-text-danger{
+    color: red;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.custom-product-buttons-btn{
+    border-radius: 4rem;
+    background-color: rgb(250, 200, 0);
+    padding: 0.25rem 0;
+}
+
+.btn_buy{
+    background-color: orange;
 }
