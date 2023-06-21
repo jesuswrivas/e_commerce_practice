@@ -1,0 +1,71 @@
+<div class="container-fluid mt-5 pb-5">
+
+  <div class="container custom-product-container">
+
+    <div class="row pb-5">
+
+      <div class="col-7 custom-product-image">
+        <%= image_tag @product.image, alt: "Product Image", class: "card-custom-image" %>
+      </div>
+      <div class="col-3 custom-product-price">
+        <h3><%= @product.name %></h3>
+        <h3><%= @product.category.name %></h3>
+        <div><%= @product.price %> $</div>
+        <div><%= @product.description %></div>
+      </div>
+      <div class="col-2 custom-product-buttons d-flex flex-column">
+        <div><%= @product.price %> <span>$</span></div>
+        <button type="button" class="btn btn-primary">Buy</button>
+        <button type="button" class="btn btn-warning">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="row mt-5 py-5">
+
+      <div class="col container-fluid h-100">
+        <h2 class="font-weight-light">Latest in <%= @product.category.name %></h2>
+        <div class="d-flex flex-row flex-nowrap overflow-auto custom-flex-main-page">
+          <% @latest_5_category_products.each do |product| %>
+            <div class="card-custom-main-page">
+              <div class="card-custom-main-page-top">
+                <%= image_tag product.image, alt: "Product Image", class: "card-custom-image" %>
+              </div>
+              <div class="card-custom-main-page-bottom">
+                <p class="card-custom-text"><%= product.price %> $</p>
+                <p class="card-custom-text text-center"><%= product.name %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div> 
+      
+    </div>
+
+
+    <div class="row mt-5 pb-5">
+    
+        <div class="container-fluid w-50">
+            <div><h5>Latest reviews</h5></div>
+            <div>
+              <% @latest_5_reviews.each do |review|%>
+              <div class="container mt-5">
+                  <div class="product-review-user"><%= review.user.name%> <%= review.user.last_name%> </div>
+                      <div>
+                      <span class= "product-review-rating"><%= review.rating%>/5</span>
+                      <span class= "product-review-title"><%= review.title %> </span>
+                  </div>
+                  <div class= "product-review-data"> Review created at: <%= review.created_at.strftime('%Y-%m-%d') %></div>
+                  <div class="product-review-comment"><%= review.comment %></div>
+              </div>
+              <% end%>
+            </div>  
+          
+        </div>
+    
+    
+    </div>
+
+
+  </div>
+
+</div>

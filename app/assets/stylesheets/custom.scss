@@ -1,14 +1,12 @@
 
-main{
-    min-height: 100vh;
-}
-
 .navbar-link-custom{
     text-decoration: none;
     margin: 0 1rem;
     color: white;
     padding: 0;
 }
+
+
 
 .navbar-link-custom:hover{
    border: 1px solid white;
@@ -19,35 +17,22 @@ main{
 //     outline: 1px solid red;
 // }
 
-body{
-    background-color: #E3E6E6;
-}
 
-.card-custom-main-page{
-    min-height: 20rem;
-    min-width: 20rem;
-    margin-right: 5px;
-    border: 0;
-}
 
-.custom-flex-main-page{
-    gap: 0;
+body, html{
+   
+    height: 100vh;
 }
 
 
-.card-custom-main-page-top{
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.main-body{
+   height: 100%;
 }
-
 
 
 .navbar--custom__bottom{
     color: white;
     background-color: #232F3E;
-    font-size: 1.25rem;
     padding: 1rem;
 }
 
@@ -55,7 +40,6 @@ body{
 .navbar--custom__top{
     background-color: #131921;
     color: white;
-    font-size: 1.25rem;
 
 }
 
@@ -72,4 +56,75 @@ body{
 .home-latest-products{
     background-color: white;
     padding: 2rem;
+}
+
+.card-custom-main-page{
+    height: 98%;
+    min-width: 20rem;
+    margin-right: 5px;
+    border: 0;
+}
+
+.card-custom-main-page-top{
+    height: 90%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    
+
+}
+
+.card-custom-main-page-bottom{
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-custom-image{
+    height: auto;
+    width: 80%;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.custom-flex-main-page{
+    gap: 0;
+    height: 90%;
+    justify-content: center;
+    align-items: baseline;
+}
+
+
+// .product-review-user{
+
+
+// }
+
+// .product-review-comment{
+
+// }
+
+
+.product-review-rating{
+    color: grau;
+
+}
+
+.product-review-title{
+    font-weight: 500;
+}
+
+.product-review-user{
+    font-size: 0.85rem;
+}
+
+.product-review-data{
+    color: #929393;
+}
+
+.custom-product-container .row{
+    border-bottom: 1px solid rgb(163, 163, 163);
 }

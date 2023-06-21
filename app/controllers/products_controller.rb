@@ -1,17 +1,28 @@
 class ProductsController < ApplicationController
 
+    def show
+        @product = Product.find_by(id: params[:id])
+        @latest_5_category_products = Product.where(category: @product.category).order(id: :desc).limit(5)
+        @latest_5_reviews = Review.where(product_id: @product.id).order(id: :desc).limit(5)
+          
+    end
+
+    def index
+        # @category = Category.find_by()
+
+    end
+
+
     def new
         @product = Product.new
     end
 
     def create
-    
-    p params
+
         @product = Product.new(product_params)
         if @product.save
             redirect_to home_path
         else
-            flash[:alert] = "Please check the text fields for any error"
             render :new, status: :unprocessable_entity
         end
     end

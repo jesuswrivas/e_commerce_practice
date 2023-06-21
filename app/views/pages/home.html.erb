@@ -5,31 +5,27 @@
 
 
 
-<div class="container-fluid w-75 mt-5">
+<div class="container-fluid w-75 mt-5 h-100">
 
 
-  <div class="row home-latest-products">
+  <div class="row home-latest-products h-50">
 
-   <div class="col container-fluid">
+   <div class="col container-fluid h-100">
+
         <h2 class="font-weight-light">Latest Products!</h2>
         <div class="d-flex flex-row flex-nowrap overflow-auto custom-flex-main-page">
             
             <% @last_7_products.each do |product|%>
+            
+                <div class="card-custom-main-page">
+                  <div class= "card-custom-main-page-top">
+                    <%= image_tag product.image, alt: "Product Image", class: "card-custom-image" %>
+                  </div>
 
-              <div class="card card-body card-custom-main-page">
-
-               <div class="card-custom-main-page-top">
-               <%= image_tag product.image.variant(resize_to_limit: [200,200]), alt: "Product Image", class: "card-img-top" %>
-               </div>
-
-              <div class="card-body card-custom-main-page-bottom">
-                <p class="card-text"> <%= product.price%> $</p>
-                <p class="card-text text-center"> <%= product.name%> </p>
-              </div>
-    
-
-               
-
+                  <div class="card-custom-main-page-bottom">
+                    <p class="card-custom-text"> <%= product.price%> $</p>
+                    <p class="card-custom-text text-center"> <%= product.name%> </p>
+                  </div>
               </div>
             <% end %>
        </div>
