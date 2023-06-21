@@ -4,42 +4,67 @@
 
     <div class="row pb-5">
 
-      <div class="col-7 custom-product-image">
+      <div class="col-6 custom-product-image">
         <%= image_tag @product.image, alt: "Product Image", class: "card-custom-image" %>
       </div>
-      <div class="col-3 custom-product-price">
+      <div class="col-3 custom-product-info">
         <h3><%= @product.name %></h3>
-        <h3><%= @product.category.name %></h3>
-        <div><%= @product.price %> $</div>
-        <div><%= @product.description %></div>
+        <h5><%= @product.category.name %></h5>
+
+            <div class="custom-product-info-price mt-3">
+              $<span class="price"><%= @product.price %></span>
+            </div>
+
+            <div class="custom-product-info-description mt-3">
+            <h5>About this item</h5>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= @product.brand %></li>
+              <li class="list-group-item"><%= @product.description_1 %></li>
+              <li class="list-group-item"><%= @product.description_2 %></li>
+            
+            </ul>
+            </div>
+
       </div>
-      <div class="col-2 custom-product-buttons d-flex flex-column">
-        <div><%= @product.price %> <span>$</span></div>
-        <button type="button" class="btn btn-primary">Buy</button>
-        <button type="button" class="btn btn-warning">Add to Cart</button>
+      <div class="col-2 custom-product-buttons d-flex flex-column ms-5">
+
+        <div>
+          <div class= "custom-product-buttons-price"><span>$<%= @product.price %></span></div>
+          <div class= "custom-product-buttons-stock"><span>Only <%= @product.quantity %> left in stock</span></div>
+        </div>
+
+        <div>
+               
+        
+        </div>
+
+        <div>
+        
+        
+        </div>
+
+
+        <div>
+          <button type="button" class="btn btn-primary">Buy</button>
+          <button type="button" class="btn btn-warning">Add to Cart</button>
+        </div>
+
+
+
+
+
       </div>
     </div>
 
     <div class="row mt-5 py-5">
-
-      <div class="col container-fluid h-100">
-        <h2 class="font-weight-light">Latest in <%= @product.category.name %></h2>
-        <div class="d-flex flex-row flex-nowrap overflow-auto custom-flex-main-page">
-          <% @latest_5_category_products.each do |product| %>
-            <div class="card-custom-main-page">
-              <div class="card-custom-main-page-top">
-                <%= image_tag product.image, alt: "Product Image", class: "card-custom-image" %>
-              </div>
-              <div class="card-custom-main-page-bottom">
-                <p class="card-custom-text"><%= product.price %> $</p>
-                <p class="card-custom-text text-center"><%= product.name %></p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div> 
-      
+          <div class="container-fluid py-2 w-75">
+          <h2 class="font-weight-light">Latest in <%= @product.category.name %></h2>
+          <%= render partial: "shared/items-horizontal", locals: { products_array: @latest_5_category_products } %>
+      </div>
     </div>
+
+
 
 
     <div class="row mt-5 pb-5">

@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   get "/log_in", to: "pages#log_in"
 
   
-
-
   #Routes for Sessions controller
   resources :sessions, only: [:new, :create]
   delete "/log_out", to: "sessions#destroy", as: :log_out
@@ -29,7 +27,12 @@ Rails.application.routes.draw do
   end
 
   resources :products do
-    resources :reviews
+    resources :reviews, only:[:show, :index]
+  end
+
+
+  resources :categories, only: [:show] do
+    resources :products, only: [:index]
   end
 end
 

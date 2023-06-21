@@ -53,35 +53,45 @@ body, html{
 
 // HOME STYLING
 
+
 .home-latest-products{
     background-color: white;
     padding: 2rem;
 }
 
+
 .card-custom-main-page{
-    height: 98%;
-    min-width: 20rem;
+    min-height: 300px;
+    min-width: 300px;
     margin-right: 5px;
-    border: 0;
 }
 
+
 .card-custom-main-page-top{
-    height: 90%;
+    height: 80%;
     width: 100%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
- 
     
 
 }
 
 .card-custom-main-page-bottom{
-    height: 10%;
+    height: 20%;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content:center;
 }
+
+
+.card-custom-main-page-bottom-price{
+    width: 30%;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
 
 .card-custom-image{
     height: auto;
@@ -109,12 +119,13 @@ body, html{
 
 
 .product-review-rating{
-    color: grau;
+    color: #929393;
 
 }
 
 .product-review-title{
     font-weight: 500;
+    
 }
 
 .product-review-user{
@@ -126,5 +137,23 @@ body, html{
 }
 
 .custom-product-container .row{
-    border-bottom: 1px solid rgb(163, 163, 163);
+    border-bottom: 1px solid rgb(222, 226, 230);
+}
+.custom-product-info-price{
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(222, 226, 230);
+}
+
+.custom-product-buttons{
+
+    border: 1px solid rgb(222, 226, 230);
+}
+
+.custom-product-buttons-price{
+   font-size: 2rem; 
+}
+.custom-product-buttons-stock{
+    color: #7e7e7e;
+
 }

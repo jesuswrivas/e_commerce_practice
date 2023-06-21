@@ -6,7 +6,9 @@ class Product < ApplicationRecord
     validates :image, presence: true
     validates :name, presence: true
     validates :price, presence: true,  numericality: { greater_than_or_equal_to: 0}
-    validates :description, presence: true
+    validates :description_1, presence: true
+    validates :quantity, presence: true
+    validates :brand, presence: true
 
 end
 

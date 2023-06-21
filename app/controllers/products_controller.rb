@@ -8,8 +8,19 @@ class ProductsController < ApplicationController
     end
 
     def index
-        # @category = Category.find_by()
+        # for all categories
+        @category = Category.find_by(id:(params[:category_id]))
 
+        if @category
+            @products = @category.products  
+
+        #for all products no matter the categories
+        else
+        
+
+
+        end
+        
     end
 
 

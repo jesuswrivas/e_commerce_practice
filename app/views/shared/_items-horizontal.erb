@@ -1,0 +1,17 @@
+ <div class="d-flex flex-row flex-nowrap overflow-auto">
+    <% products_array.each do |product| %>
+      <div class="card-custom-main-page">
+        <div class="card-custom-main-page-top">
+
+            <%= link_to product_path(product) do %>
+              <%= image_tag product.image, alt: "Product Image", class: "card-custom-image" %>
+            <% end %>
+              
+        </div>
+        <div class="card-custom-main-page-bottom">
+          <div class="card-custom-main-page-bottom-price">$<%=product.price%></div>
+          <div class="card-custom-main-page-bottom-name"><%=product.name%></div>
+        </div>
+      </div>
+    <% end %>
+  </div>

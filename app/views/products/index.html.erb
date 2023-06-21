@@ -1,0 +1,32 @@
+
+
+<div class="container-fluid py-2 w-75">
+  <h2 class="font-weight-light">
+  <%= @category.name%>
+  </h2>
+
+  <div class="d-flex flex-row">
+    <% @products.each do |product| %>
+      <div class="card-custom-main-page">
+        <div class="card-custom-main-page-top">
+
+        
+          <%= link_to product_path(product) do %>
+            <%= image_tag product.image, alt: "Product Image", class: "card-custom-image" %>
+          <% end %>
+              
+
+        </div>
+        <div class="card-custom-main-page-bottom">
+          <p class="card-custom-text"><%= product.price %> $</p>
+          <p class="card-custom-text text-center"><%= product.name %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+</div>
+
+
+

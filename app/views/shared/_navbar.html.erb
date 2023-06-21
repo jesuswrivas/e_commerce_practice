@@ -44,7 +44,10 @@
           </a>
           <ul class="dropdown-menu">
             <% @categories.each do |category| %>
-              <li><a class="dropdown-item" href="#"><%= category.name %></a></li>
+
+            <li><%= link_to category.name, category_products_path(category), class: "dropdown-item" %></li>
+
+
             <% end %>
           </ul>
 
