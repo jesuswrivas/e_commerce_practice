@@ -1,0 +1,39 @@
+
+<div class="container-fluid py-2 w-75">
+  <h2 class="font-weight-light">
+    <h2>Your Cart</h2>
+  </h2>
+
+  <div class="d-flex flex-column">
+    <% @products.each do |product| %>
+      <div class="d-flex card-custom-cart">
+
+        <div class="card-custom-cart-image">
+         <%= image_tag product.image, alt: "Product Image" %>
+        </div>
+
+
+        <div class="card-custom-cart-info">   
+            <div class="card-custom-cart-info-title"> <%= product.name%> </div>
+            <div class="card-custom-cart-info-stock">  in Stock </div>
+            <div class="card-custom-cart-info-options"> 
+                <div class="card-custom-cart-info-options-qty"><%= product.quantity%> </div>
+                <div class="card-custom-cart-info-options-delete"> 
+                    <%= link_to "Delete", cart_cart_item_path(id:@user.cart.id, product_id: product.id),
+                    data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+                 </div>
+            </div>
+        </div>
+
+        <div class="card-custom-cart-price">   
+            <%= product.price%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+</div>
+
+
+

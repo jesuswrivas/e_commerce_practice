@@ -67,11 +67,25 @@
 
   <div class="container-fluid d-flex justify-content-end">
        <ul class="navbar-nav ">
+
+
+       <li class="nav-item">
+          <div class="container">
+            <% if session[:user_id] %>
+              <%= link_to cart_path, class: "navbar-link-custom" do%>
+              <i class="bi bi-cart-fill"></i>
+              <%end%>
+            <% end %>
+          </div>
+        </li>
+
          <li class="nav-item">
           <% if session[:user_id] %>
             <%= link_to "Profile", user_profile_path(session[:user_id]), class: "navbar-link-custom" %>
           <% end %>   
         </li>
+
+    
 
 
         <li class="nav-item">

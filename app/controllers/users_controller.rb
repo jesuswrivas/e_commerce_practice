@@ -20,7 +20,10 @@ class UsersController < ApplicationController
         if @user.save 
             @user.build_profile(name:@user.name, email:@user.email)
             @user.profile.save
-            redirect_to home_path
+            @user.build_cart
+            @user.cart.save
+
+            redirect_to root_path, notice: "User created succesfully"
         else
             flash[:alert] = "Please check the text fields for any error"
             render :new, status: :unprocessable_entity

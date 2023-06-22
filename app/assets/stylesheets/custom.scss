@@ -13,9 +13,9 @@
 }
 
 
-// *{
-//     outline: 1px solid red;
-// }
+*{
+    outline: 1px solid red;
+}
 
 
 
@@ -108,15 +108,7 @@ body, html{
 }
 
 
-// .product-review-user{
-
-
-// }
-
-// .product-review-comment{
-
-// }
-
+// SHOW PRODUCT
 
 .product-review-rating{
     color: #929393;
@@ -179,4 +171,53 @@ body, html{
 
 .btn_buy{
     background-color: orange;
+}
+
+
+// CART STYLING
+
+
+.card-custom-cart{
+    height: 250px;
+    width:  100%;
+}
+
+.card-custom-cart-image{
+    height: 100%;
+    width: 25%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+.card-custom-cart-image img{
+    object-fit: cover;
+    max-width: 70%;
+}
+
+.card-custom-cart-info{
+    width: 65%;
+}
+
+.card-custom-cart-info-title{
+    font-size: 1.5rem;
+    color: #0077C1;
+    font-weight: 500;
+}
+
+.card-custom-cart-info-stock{
+   color: green;
+    
+}
+
+
+.card-custom-cart-price{
+    width: 10%;
+    font-size: 1.5rem;
+    color: #CC0C39;
+    font-weight: 800;
+    text-align: end;
+
 }

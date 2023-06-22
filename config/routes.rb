@@ -24,12 +24,20 @@ Rails.application.routes.draw do
       get "/cards", to: "profiles#cards"
       get "/personal_info", to: "profiles#personal_info"
       get "/security", to: "profiles#security"
+ 
   end
+
+
+    #routes for Cart Controller
+
+  resource :cart, only: [:show]  do
+    resources :cart_items, only: [:new, :create, :destroy]
+  end
+
 
   resources :products do
     resources :reviews, only:[:show, :index]
   end
-
 
   resources :categories, only: [:show] do
     resources :products, only: [:index]
