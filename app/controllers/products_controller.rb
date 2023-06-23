@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
     def show
+        @new_cart_item = CartItem.new
         @product = Product.find_by(id: params[:id])
         @latest_5_category_products = Product.where(category: @product.category).order(id: :desc).limit(5)
         @latest_5_reviews = Review.where(product_id: @product.id).order(id: :desc).limit(5)

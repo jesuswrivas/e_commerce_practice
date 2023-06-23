@@ -207,6 +207,9 @@ body, html{
     font-weight: 500;
 }
 
+
+
+
 .card-custom-cart-info-stock{
    color: green;
     
@@ -220,4 +223,11 @@ body, html{
     font-weight: 800;
     text-align: end;
 
+}
+
+
+.card-custom-cart-info-options{
+    display: flex;
+    height: auto;
+    
 }

@@ -2,8 +2,12 @@ class Product < ApplicationRecord
     has_many :reviews
     belongs_to :category
     has_one_attached :image
-    has_and_belongs_to_many :carts
-    
+  
+    has_many :cart_items
+    has_many :carts, through: :cart_items
+   
+
+    # validations
     validates :image, presence: true
     validates :name, presence: true
     validates :price, presence: true,  numericality: { greater_than_or_equal_to: 0}
