@@ -12,23 +12,28 @@ class CartItemsController < ApplicationController
         @product_id = cart_item_params[:product_id]
         @product = Product.find_by(id: @product_id)
         
-        #Server side validation for a quantity greater than the stock
-        if cart_item_params[:quantity].to_i <= @product.quantity
-
-            @new_cart_item = CartItem.new(cart_item_params.merge(cart_id: @cart.id))
-            if @new_cart_item.save
-                flash[:notice] = "Item added to the cart"
-            else
-                flash[:alert] = "Please check the text fields for any error"
-            end
-            redirect_to product_path(cart_item_params[:product_id])
-
-        else 
-            flash[:alert] = "Something went wrong. Not enough in stock"
-            redirect_to product_path(cart_item_params[:product_id]),status: :unprocessable_entity
+        #Server side validation 
+        #Case 1: The quantity attribute is 0
+        if  @product.quantity == 0
+            flash[:alert] = "Something went wrong. Item out of stock"
+            redirect_to product_path(cart_item_params[:product_id]) and return
         end
-   
 
+        #Case 2: The form field (quantity) is greater than the Product quantity attribute
+        if cart_item_params[:quantity].to_i > @product.quantity
+            flash[:alert] = "Something went wrong. Not enough in stock"
+            redirect_to product_path(cart_item_params[:product_id]) and return
+        end
+
+        @new_cart_item = CartItem.new(cart_item_params.merge(cart_id: @cart.id))
+
+        if @new_cart_item.save
+            flash[:notice] = "Item added to the cart"
+        else
+            flash[:alert] = "Please check the text fields for any error"
+        end
+        redirect_to product_path(cart_item_params[:product_id])
+  
     end
 
     def destroy

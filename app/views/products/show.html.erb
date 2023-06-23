@@ -63,7 +63,7 @@
 
       <%= form_with model: @new_cart_item, url: cart_cart_items_path, id: "form_cart",  local: true do |form| %>
            <%= form.label :quantity, "Qty" %>
-           <%= form.number_field :quantity, in: 1..@product.quantity, step: 1, value: 1 %>
+           <%= form.number_field :quantity, in: 1..111, step: 1, value: 1 %>
            <%= form.hidden_field :product_id, value: @product.id %>
       <% end %>
 
