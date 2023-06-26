@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_26_212336) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_26_215705) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -90,6 +90,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_212336) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "purchase_products", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "product_id", null: false
+    t.integer "purchase_id", null: false
+    t.index ["product_id"], name: "index_purchase_products_on_product_id"
+    t.index ["purchase_id"], name: "index_purchase_products_on_purchase_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_purchases_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "comment"
@@ -100,20 +114,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_212336) do
     t.string "title"
     t.index ["product_id"], name: "index_reviews_on_product_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "transaction_products", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "product_id", null: false
-    t.integer "purchased_transaction_id", null: false
-    t.index ["product_id"], name: "index_transaction_products_on_product_id"
-    t.index ["purchased_transaction_id"], name: "index_transaction_products_on_purchased_transaction_id"
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -132,9 +132,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_212336) do
   add_foreign_key "cart_items", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "profiles", "users"
+  add_foreign_key "purchase_products", "products"
+  add_foreign_key "purchase_products", "purchases"
+  add_foreign_key "purchases", "users"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
-  add_foreign_key "transaction_products", "products"
-  add_foreign_key "transaction_products", "transactions", column: "purchased_transaction_id"
-  add_foreign_key "transactions", "users"
 end

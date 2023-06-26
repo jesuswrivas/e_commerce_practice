@@ -1,4 +1,4 @@
-class TransactionsController < ApplicationController
+class PurchasesController < ApplicationController
 
     def new
         @user = User.find_by(id: session[:user_id])
@@ -12,12 +12,12 @@ class TransactionsController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         @cart_items = CartItem.where(cart_id: @user.cart.id)
         @subtotal = cart_subtotal
-        @new_transaction = Transaction.new(user_id: @user.id)
+        @new_purchase = Purchase.new(user_id: @user.id)
 
-        Transaction.transaction do
-          if @new_transaction.save
+        Purchase.transaction do
+          if @new_purchase.save
             @cart_items.each do |item|
-                TransactionProduct.create!(purchased_transaction_id: @new_transaction.id, product_id: item.product.id)
+                PurchaseProduct.create!(purchase_id: @new_purchase.id, product_id: item.product.id)
             end
           else
             flash[:alert] = "Something went wrong"
@@ -41,10 +41,4 @@ class TransactionsController < ApplicationController
       subtotal
     end
 
-    # def items_array_hash
-    #     #[{trans_id:   product:_id : },{trans_id:   product:_id : },{trans_id:   product:_id : }]
-    #     @cart_items.map do|item|
-    #         {transaction_id: @new_transaction.id, product_id: item.product.id}
-    #     end
-    # end
 end

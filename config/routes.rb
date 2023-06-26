@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       get "/personal_info", to: "profiles#personal_info"
       get "/security", to: "profiles#security"
 
-      resources :transactions, only: [:new, :create, :index]
+      resources :purchases, only: [:new, :create, :index]
   end
 
 
@@ -44,9 +44,9 @@ Rails.application.routes.draw do
   end
 
 
-  #Routes for Transactions
-  resources :transactions, except: [:new, :create, :index] do
-    resources :transaction_products
+  #Routes for Purchase
+  resources :purchases, except: [:new, :create, :index] do
+    resources :purchase_products
   end
 
 

@@ -7,9 +7,8 @@ class Product < ApplicationRecord
     has_many :carts, through: :cart_items
 
 
-    has_many :transaction_products
-    has_many :purchased_transactions, through: :transaction_products, source: :purchased_transaction
-
+    has_many :purchase_products
+    has_many :purchases, through: :purchase_products
 
     # validations
     validates :image, presence: true
