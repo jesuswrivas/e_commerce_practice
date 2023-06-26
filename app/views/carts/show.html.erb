@@ -36,6 +36,18 @@
         </div>
       </div>
     <% end %>
+    <div>
+      <div> 
+        <span> Subtotal: $<%= @subtotal %> </span>
+
+      </div>
+      <div>
+        <%= link_to "Proceed to Checkout", new_user_transaction_path(@user)%>
+
+      </div>
+    
+    </div>
+
   </div>
 
 

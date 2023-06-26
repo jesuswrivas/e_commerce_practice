@@ -5,7 +5,11 @@ class Product < ApplicationRecord
   
     has_many :cart_items
     has_many :carts, through: :cart_items
-   
+
+
+    has_many :transaction_products
+    has_many :purchased_transactions, through: :transaction_products, source: :purchased_transaction
+
 
     # validations
     validates :image, presence: true

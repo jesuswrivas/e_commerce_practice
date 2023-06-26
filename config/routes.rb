@@ -24,14 +24,14 @@ Rails.application.routes.draw do
       get "/cards", to: "profiles#cards"
       get "/personal_info", to: "profiles#personal_info"
       get "/security", to: "profiles#security"
- 
+
+      resources :transactions, only: [:new, :create, :index]
   end
 
 
-    #routes for Cart Controller
-
+  #routes for Cart Controller
   resource :cart, only: [:show]  do
-    resources :cart_items, only: [:new, :create, :destroy]
+    resources :cart_items, only: [:new, :create, :index, :destroy]
   end
 
 
@@ -42,5 +42,15 @@ Rails.application.routes.draw do
   resources :categories, only: [:show] do
     resources :products, only: [:index]
   end
+
+
+  #Routes for Transactions
+  resources :transactions, except: [:new, :create, :index] do
+    resources :transaction_products
+  end
+
+
+
+
 end
 
