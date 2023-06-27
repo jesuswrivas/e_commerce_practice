@@ -16,6 +16,7 @@ class PurchasesController < ApplicationController
       
       if @new_purchase
         flash[:notice] = "Purchase confirmed"  
+        @user.cart.empty_cart
       else
         flash[:alert] = "Something went wrong"
       end

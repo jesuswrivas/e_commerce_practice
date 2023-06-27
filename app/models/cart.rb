@@ -13,13 +13,17 @@ class Cart < ApplicationRecord
         subtotal = 0
 
         self.cart_items.each do |item|
-            subtotal += item.quantity + item.product.price
+            subtotal += item.quantity * item.product.price
         end
 
         return subtotal
     end
 
-       
+
+    def empty_cart
+        self.cart_items.destroy_all
+    end
+      
 
 
 end

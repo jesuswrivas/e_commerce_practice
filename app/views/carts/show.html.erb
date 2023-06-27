@@ -5,34 +5,32 @@
   </h2>
 
   <div class="d-flex flex-column">
-    <% @products.each do |product| %>
+    <% @cart_items.each do |item| %>
       <div class="d-flex card-custom-cart">
 
         <div class="card-custom-cart-image">
-         <%= image_tag product.image, alt: "Product Image" %>
+         <%= image_tag item.product.image, alt: "Product Image" %>
         </div>
 
 
         <div class="card-custom-cart-info">   
-            <div class="card-custom-cart-info-title"> <%= product.name%> </div>
+            <div class="card-custom-cart-info-title"> <%= item.product.name%> </div>
             <div class="card-custom-cart-info-stock">  in Stock </div>
             <div class="card-custom-cart-info-options"> 
                 <div class="card-custom-cart-info-options-qty">
-                  <select class="form-select w-25 ms-2 h-75">
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
+                  
+                    <%= item.quantity%>
+             
                  </div>
                 <div class="card-custom-cart-info-options-delete"> 
-                    <%= link_to "Delete", cart_cart_item_path(id: product.cart_items.find_by(product_id: product.id)),
+                    <%= link_to "Delete", cart_cart_item_path(id: item.id),
                     data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %> 
                  </div>
             </div>
         </div>
 
         <div class="card-custom-cart-price">   
-            <%= product.price%>
+            <%= item.product.price*item.quantity%>
         </div>
       </div>
     <% end %>
@@ -44,7 +42,6 @@
       <div>
         <%= link_to "Proceed to Checkout", new_user_purchase_path(@user)%>
         
-
       </div>
     
     </div>

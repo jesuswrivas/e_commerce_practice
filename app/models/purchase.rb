@@ -11,7 +11,8 @@ class Purchase < ApplicationRecord
 
           if new_purchase.save
               cart_items.each do |item|
-                  new_purchase.purchase_products.create(product_id: item.id)
+                  new_purchase.purchase_products.create(product_id: item.id, item_qty: item.quantity ,item_price:item.product.price )
+                  item.product.decrement_stock(item.quantity)
               end
           else
               raise ActiveRecord::Rollback
@@ -20,16 +21,6 @@ class Purchase < ApplicationRecord
   end
 
 
-  def self.decrement_stock(product, qty_sold)
-      product.quantity -= qty_sold
-              
-      if product.save
-          true
-      else
-          false
-      end
-
-  end
 
 
 

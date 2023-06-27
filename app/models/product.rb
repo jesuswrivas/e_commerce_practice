@@ -18,5 +18,16 @@ class Product < ApplicationRecord
     validates :quantity, presence: true
     validates :brand, presence: true
 
+
+    def decrement_stock(qty_sold)
+        self.quantity -= qty_sold
+        if self.save
+            p "#{qty_sold} has been moved out from #Item: #{self.id} stock"
+        else
+            p "Error, something happened."
+        end
+    end
+  
+
 end
 
