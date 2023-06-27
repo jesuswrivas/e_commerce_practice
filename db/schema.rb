@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_26_234118) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_204856) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -97,12 +97,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_234118) do
     t.integer "purchase_id", null: false
     t.integer "item_qty"
     t.decimal "item_price"
+    t.integer "review_id"
     t.index ["product_id"], name: "index_purchase_products_on_product_id"
     t.index ["purchase_id"], name: "index_purchase_products_on_purchase_id"
+    t.index ["review_id"], name: "index_purchase_products_on_review_id"
   end
 
   create_table "purchases", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
@@ -136,6 +140,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_234118) do
   add_foreign_key "profiles", "users"
   add_foreign_key "purchase_products", "products"
   add_foreign_key "purchase_products", "purchases"
+  add_foreign_key "purchase_products", "reviews"
   add_foreign_key "purchases", "users"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"

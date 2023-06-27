@@ -89,29 +89,21 @@
     </div>
 
 
-
-
     <div class="row mt-5 pb-5">
-    
         <div class="container-fluid w-50">
-            <div><h5>Latest reviews</h5></div>
-            <div>
-              <% @latest_5_reviews.each do |review|%>
-              <div class="container mt-5">
-                  <div class="product-review-user"><%= review.user.name%> <%= review.user.last_name%> </div>
-                      <div>
-                      <span class= "product-review-rating"><%= review.rating%>/5</span>
-                      <span class= "product-review-title"><%= review.title %> </span>
-                  </div>
-                  <div class= "product-review-data"> Review created at: <%= review.created_at.strftime('%Y-%m-%d') %></div>
-                  <div class="product-review-comment"><%= review.comment %></div>
-              </div>
-              <% end%>
-            </div>  
-          
+            <div><h5>Latest reviews</h5> </div>
+
+          <% if @product.reviews.empty?%>
+          <p>There are no reviews for this product yet</p>
+          <% else%>
+            <%= render partial: "reviews", locals: {reviews: @latest_5_reviews }%> 
+          <% end%>
+
         </div>
-    
-    
+
+      
+    </div>
+
     </div>
 
 

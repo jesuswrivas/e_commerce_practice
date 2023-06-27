@@ -22,6 +22,13 @@ class PurchasesController < ApplicationController
       end
       redirect_to root_path
     end
+
+
+
+    def index
+      @user = User.find_by(id: session[:user_id])
+      @purchase_list = @user.get_all_purchase_products  
+    end
          
 
 end

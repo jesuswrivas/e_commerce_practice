@@ -1,87 +1,67 @@
-
-<div class="container-fluid ">
-
-   <div class="row mt-5">
-   
+<div class="container-fluid">
+  <div class="row mt-5">
     <div class="col-2">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Profile</li>
-
-
-
-
-
-
-
-        
-
-                <div class="list-group-item dropdown p-0">
-                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Purchases
-                    </button>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Purchases</a></li>
-                    <li><a class="dropdown-item" href="#">Reviews</a></li>
-                    </ul>
-                </div>
-           
-
-
-
-
-
-            <li class="list-group-item">Settings</li>
-
-        </ul>
-
-    </div>
-
-    <div class="col-10">
-
-        <div class="container w-50">
-            <div class="row mb-5">
-                <div class="col">
-                     <h1>Hello user!</h1>
-                </div>
-            
-            </div>
-            <div class="row">
-                <div class="col">
-                    <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                            <div class="fw-bold">
-                            <%= link_to "Personal Data", user_personal_info_path(session[:user_id]) %>
-                            </div> Manage your personal data </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                            <div class="fw-bold">
-                            <%= link_to "Adresses", user_addresses_path(session[:user_id]) %>
-                            </div> Manage your addresses </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                            <div class="fw-bold">
-                            <%= link_to "Cards", user_cards_path(session[:user_id]) %>
-                            </div> Manage your cards</div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                            <div class="fw-bold">
-                            <%= link_to "Security", user_security_path(session[:user_id]) %>
-                            </div> Manage your security settings </div>
-                        </li>
-                    </ul>
-            
-                </div>
-            
-            </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Profile</li>
+        <div class="list-group-item dropdown p-0">
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Purchases
+          </button>
+          <ul class="dropdown-menu">
+            <%# <li><a class="dropdown-item" href="#">Purchases</a></li> %>
+            <li><%= link_to "Purchases",  user_purchases_path(@user)%></li>
+            <li><a class="dropdown-item" href="#">Reviews</a></li>
+          </ul>
         </div>
-    
-    </div>                
-        
-   </div>
-
-
+        <li class="list-group-item">Settings</li>
+      </ul>
+    </div>
+    <div class="col-10">
+      <div class="container w-50">
+        <div class="row mb-5">
+          <div class="col">
+            <h1>Hello user!</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">
+                    <%= link_to "Personal Data", user_personal_info_path(session[:user_id]) %>
+                  </div>
+                  Manage your personal data
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">
+                    <%= link_to "Addresses", user_addresses_path(session[:user_id]) %>
+                  </div>
+                  Manage your addresses
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">
+                    <%= link_to "Cards", user_cards_path(session[:user_id]) %>
+                  </div>
+                  Manage your cards
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">
+                    <%= link_to "Security", user_security_path(session[:user_id]) %>
+                  </div>
+                  Manage your security settings
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

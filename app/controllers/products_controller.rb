@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
     def show
+        @user = User.find_by(id: session[:user_id])
         @new_cart_item = CartItem.new
         @product = Product.find_by(id: params[:id])
         @latest_5_category_products = Product.where(category: @product.category).order(id: :desc).limit(5)

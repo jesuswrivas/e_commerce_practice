@@ -1,0 +1,13 @@
+<div>
+    <% reviews.each do |review|%>
+    <div class="container mt-5">
+        <div class="product-review-user"><%= review.user.name%> <%= review.user.last_name%> </div>
+            <div>
+            <span class= "product-review-rating"><%= review.rating%>/5</span>
+            <span class= "product-review-title"><%= review.title %> </span>
+        </div>
+        <div class= "product-review-data"> Review created at: <%= review.created_at.strftime('%Y-%m-%d') %></div>
+        <div class="product-review-comment"><%= review.comment %></div>
+    </div>
+    <% end%>
+</div>  

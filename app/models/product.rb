@@ -27,6 +27,15 @@ class Product < ApplicationRecord
             p "Error, something happened."
         end
     end
+
+
+    def bought_by_user?(user)
+        join_table = PurchaseProduct.joins(:purchase).select('purchase_products.*, purchases.user_id').where(product_id: self.id)
+        join_table.any? do |object|
+            object.user_id == user.id
+        end
+
+    end
   
 
 end

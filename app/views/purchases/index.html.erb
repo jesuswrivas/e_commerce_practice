@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  
+  <div class="row mt-5">
+    <div class="col-2">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Profile</li>
+
+        <div class="list-group-item dropdown p-0">
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Purchases
+          </button>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Purchases</a></li>
+            <li><a class="dropdown-item" href="#">Reviews</a></li>
+          </ul>
+        </div>
+        <li class="list-group-item">Settings</li>
+      </ul>
+    </div>
+
+    <div class="col-10">
+      <div class="container w-50">
+        
+        <div class="row mb-5">
+          <div class="col">
+            <h1>Purchases</h1>
+          </div>
+        </div>
+
+        <div class="row text-center">
+          <div class="col">
+
+            <div class="row">
+              <div class="col-2"> Purchase ID </div>
+              <div class="col-1"> Qty </div>
+              <div class="col-2"> Total Cost </div>
+              <div class="col-6"> Item </div>
+              <div class="col-1"> Review</div>
+            </div>   
+                                       
+          
+
+            <% @purchase_list.each do |purchase|%> 
+            <div class="row">
+              <div class="col-2 text-center"><%= purchase.purchase_id%></div>
+              <div class="col-1 text-center"><%= purchase.item_qty%></div>
+              <div class="col-2 text-center"><%= purchase.item_price * purchase.item_qty%></div>
+              <div class="col-6 text-center"><%= purchase.product.name%></div>     
+              <div class="col-1 text-center"><%= purchase.review_id%></div>     
+            </div>
+            <% end%>
+          </div>     
+        </div>
+
+
+        <div class="row text-center">
+             <div class="col">Seems like there are some items that you havent reviewed. Please let us know what you think!</div>
+        </div>   
+
+      </div>
+    </div>
+
+  </div>
+</div>

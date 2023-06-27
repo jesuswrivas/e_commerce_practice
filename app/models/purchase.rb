@@ -11,7 +11,8 @@ class Purchase < ApplicationRecord
 
           if new_purchase.save
               cart_items.each do |item|
-                  new_purchase.purchase_products.create(product_id: item.id, item_qty: item.quantity ,item_price:item.product.price )
+
+                  new_purchase.purchase_products.create!(product_id: item.product.id, item_qty: item.quantity, item_price: item.product.price)
                   item.product.decrement_stock(item.quantity)
               end
           else
@@ -19,9 +20,6 @@ class Purchase < ApplicationRecord
           end
       end
   end
-
-
-
 
 
 end

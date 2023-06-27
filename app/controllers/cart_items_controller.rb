@@ -36,6 +36,7 @@ class CartItemsController < ApplicationController
   
     end
 
+    
     def destroy
         @cart_item = CartItem.find_by(id: params[:id])
        

@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
     end
 
     def profile
+        @user = User.find_by(id:(session[:user_id]))
     end
 
 end
