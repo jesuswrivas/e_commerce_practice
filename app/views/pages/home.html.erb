@@ -5,11 +5,23 @@
 
 
 
-
 <div class="container-fluid py-2 w-75">
-  <h2 class="font-weight-light">Latest Products!</h2>
+  <h4 class="font-weight-light">Latest Products!</h4>
     <%= render partial: "shared/items-horizontal", locals: { products_array: @last_7_products } %>
 </div>
+
+
+<% Category.ids.each do |id|%>
+  <div class="container-fluid py-2 w-75 mt-5 mb-5">
+    <h4 class="font-weight-light">  <%= Category.find_by(id: id).name%> </h4>
+      <%= render partial: "shared/items-horizontal", locals: { products_array: Category.get_items_by_category(id,7)} %>
+  </div>
+
+<% end%>
+
+
+
+
 
 
 

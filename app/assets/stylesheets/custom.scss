@@ -60,23 +60,36 @@ body, html{
 }
 
 
+.custom-horizontal-list{
+    height: 400px;
+}
+
+
 .card-custom-main-page{
     min-height: 300px;
     min-width: 300px;
+    max-width: 350px;
     margin-right: 5px;
 }
 
 
 .card-custom-main-page-top{
-    height: 80%;
+    height: 300px;
     width: 100%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-
 }
+
+
+.card-custom-image{
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
 
 .card-custom-main-page-bottom{
     height: 20%;
@@ -93,12 +106,6 @@ body, html{
 }
 
 
-.card-custom-image{
-    height: auto;
-    width: 80%;
-    object-fit: cover;
-    max-width: 100%;
-}
 
 .custom-flex-main-page{
     gap: 0;
@@ -261,13 +268,10 @@ body, html{
     padding: 2rem;
     height: 250px;
     width: 100%;
-
-
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
- 
     
 }
 
@@ -275,7 +279,6 @@ body, html{
     width: 80%;
     height: 90%; 
     object-fit: cover;
-   
 }
 
 .card-review-title{

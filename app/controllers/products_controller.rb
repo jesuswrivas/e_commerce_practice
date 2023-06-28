@@ -18,9 +18,7 @@ class ProductsController < ApplicationController
 
         #for all products no matter the categories
         else
-        
-
-
+        p "Nothing yet"
         end
         
     end

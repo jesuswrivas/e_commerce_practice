@@ -29,6 +29,7 @@ class ReviewsController < ApplicationController
     end
 
 
+    
     private
 
     def rating_params

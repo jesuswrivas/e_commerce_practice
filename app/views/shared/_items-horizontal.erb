@@ -1,10 +1,11 @@
- <div class="d-flex flex-row flex-nowrap overflow-auto">
+ <div class="custom-horizontal-list d-flex flex-row flex-nowrap overflow-auto">
     <% products_array.each do |product| %>
       <div class="card-custom-main-page">
         <div class="card-custom-main-page-top">
 
             <%= link_to product_path(product) do %>
-              <%= image_tag product.image, alt: "Product Image", class: "card-custom-image" %>
+              <%= image_tag product.image.variant(resize_to_limit: [280,280]).processed, alt: "Product Image", class: "card-custom-image" %>
+
             <% end %>
               
         </div>
