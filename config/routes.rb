@@ -44,9 +44,9 @@ Rails.application.routes.draw do
   end
 
 
-  #Routes for Purchase
-  resources :purchases, except: [:new, :create, :index] do
-    resources :purchase_products
+
+  resources :purchase_products, only: [:show, :index] do
+    resources :reviews, only:[:new, :create, :edit]
   end
 
 

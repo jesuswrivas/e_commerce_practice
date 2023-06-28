@@ -1,0 +1,66 @@
+<div class="container-card-review">
+
+    <div class="card-review">
+    
+        <div class="card-review-image">
+            <%= image_tag @purchase_product.product.image, alt: "Product Image", class:"card-review-image-picture"%> 
+        </div>
+    
+        <div>
+    
+        <div class="card-review-title">
+            <div class="card-review-title-question"> <h5>Did you like your purchase?</h5></div>
+            <div class="card-review-title-name"><%= @purchase_product.product.name%></div>
+        </div>
+    
+    
+        </div>
+    
+        <div class="card-review-form">
+    
+    
+            <%= form_with model: [@purchase_product, @review], id: "new_review_form", local: true do |form|%>
+    
+                <div class="card-review-form-rating">
+                    <div class="card-review-form-rating-label"><%= form.label :rating%></div>
+
+                    <div class="card-review-form-rating-option">
+                        <div class="card-review-form-rating-option-field"><%= form.number_field :rating,
+                         in: 1..5, step: 1, value: 5, class: "w-100 h-100"%></div>
+
+                        <div class="card-review-form-rating-text">/ </div>
+                        <div class="card-review-form-rating-text"> 5 </div>
+                    </div>
+
+                </div>
+                    
+                
+                
+                <div class="card-review-form-title mt-5 ">
+                <h5>Tell us a little more about the product</h5>
+                    <div class="card-review-form-title-label"><%= form.label :title%></div>
+                    <div class="card-review-form-title-field"><%= form.text_field :title, class: "w-100" %></div>
+                </div>
+    
+    
+                <div class="card-review-form-comment">
+                    <div class="card-review-form-comment-label"><%= form.label :comment%></div>
+                    <div class="card-review-form-comment-field"><%= form.text_area :comment%></div>
+                </div>
+    
+
+                <div class="card-review-form-buttons">
+                    <%= button_tag("Submit", type: "submit",
+                    form: 'new_review_form', class: "btn btn-primary") %>
+                </div>
+
+
+            <% end%>
+            
+            
+
+
+        </div>
+    </div>
+
+</div>

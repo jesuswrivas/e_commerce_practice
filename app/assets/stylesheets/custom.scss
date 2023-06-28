@@ -231,3 +231,151 @@ body, html{
     height: auto;
     
 }
+
+
+
+// New Review Styling
+
+.container-card-review{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.card-review label{
+    color: #696969;
+    font-size: 0.75rem;
+    
+}
+
+.card-review{
+    padding: 2rem;
+}
+
+.card-review h5{
+    font-size: 1.2rem;
+}
+
+.card-review-image{
+    padding: 2rem;
+    height: 250px;
+    width: 100%;
+
+
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    
+}
+
+.card-review-image-picture{
+    width: 80%;
+    height: 90%; 
+    object-fit: cover;
+   
+}
+
+.card-review-title{
+    padding: 2rem;
+}
+
+
+.card-review-title-question{
+    text-align: center;
+}
+.card-review-title-name{
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+
+.card-review-form-rating{
+    padding: 1rem 2rem 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid #929393;
+    
+}
+
+.card-review-form-rating-option{
+    display: flex ;
+}
+
+.card-review-form-rating-option-field{
+    width: 100%;
+    height: 100%;
+}
+
+
+.card-review-form-rating-option div{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+
+.card-review-form-title{
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+.card-review-form-title-label{
+    width: 90%;
+}
+
+
+.card-review-form-title-field{
+    width: 90%;
+}
+
+.card-review-form-comment-label{
+    width: 90%; 
+}
+
+
+.card-review-form-comment{
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-review-form-comment-field{
+    width: 90%;
+
+}
+
+.card-review-form-comment-field textarea{
+    width: 100%;
+    min-height: 150px;
+
+}
+
+.card-review-form-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+.card-review-form-buttons button{
+    margin-bottom: 1rem;
+    width: 80%;
+}

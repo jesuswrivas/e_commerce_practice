@@ -47,7 +47,14 @@
               <div class="col-1 text-center"><%= purchase.item_qty%></div>
               <div class="col-2 text-center"><%= purchase.item_price * purchase.item_qty%></div>
               <div class="col-6 text-center"><%= purchase.product.name%></div>     
-              <div class="col-1 text-center"><%= purchase.review_id%></div>     
+              <div class="col-1 text-center">
+              <% if purchase.review_id%>
+               <%= purchase.review_id%>
+              <%else %>
+              <%= link_to "Review Item",  new_purchase_product_review_path(purchase.id)%>
+              <% end %>
+              
+              </div>     
             </div>
             <% end%>
           </div>     
