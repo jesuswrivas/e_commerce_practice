@@ -42,11 +42,12 @@ class CartItemsController < ApplicationController
        
         if @cart_item.destroy
             flash[:notice] = "Item removed from cart."
+            
         else
             flash[:alert] = "Item not found in cart."
         end
-        # redirect to an appropriate path
         redirect_to cart_path(@cart)
+        # redirect to an appropriate path
     end
    
         private

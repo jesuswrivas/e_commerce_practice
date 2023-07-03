@@ -1,55 +1,55 @@
 
-<div class="container-fluid py-2 w-75">
-  <h2 class="font-weight-light">
-    <h2>Your Cart</h2>
-  </h2>
-
-  <div class="d-flex flex-column">
-    <% @cart_items.each do |item| %>
-      <div class="d-flex card-custom-cart">
-
-        <div class="card-custom-cart-image">
-         <%= image_tag item.product.image, alt: "Product Image" %>
-        </div>
+<% if flash[:notice]%>
+  <%= render partial: "shared/notice" %> 
+<% end%>
+<% if flash[:alert]%>
+  <%= render partial: "shared/alert" %> 
+<% end%>
 
 
-        <div class="card-custom-cart-info">   
-            <div class="card-custom-cart-info-title"> <%= item.product.name%> </div>
-            <div class="card-custom-cart-info-stock">  in Stock </div>
-            <div class="card-custom-cart-info-options"> 
-                <div class="card-custom-cart-info-options-qty">
-                  
-                    <%= item.quantity%>
-             
-                 </div>
-                <div class="card-custom-cart-info-options-delete"> 
-                    <%= link_to "Delete", cart_cart_item_path(id: item.id),
-                    data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %> 
-                 </div>
+
+<div class="container-fluid py-2 w-75 mt-5">
+  <h2 class="font-weight-light "> Your Cart </h2>
+
+  <% if @cart_items.count == 0%>
+    <h5>No items in your cart. Add some!</h5>
+  <% else%>
+    <div class="d-flex flex-column">
+
+      <% @cart_items.each do |item| %>
+        <div class="d-flex card-custom-cart">
+          <div class="card-custom-cart-image">
+            <%= image_tag item.product.image, alt: "Product Image" %>
+          </div>
+          <div class="card-custom-cart-info">   
+            <div class="card-custom-cart-info-title">
+              <%= item.product.name %>
             </div>
-        </div>
+            <div class="card-custom-cart-info-stock">
+              in Stock
+            </div>
+            <div class="card-custom-cart-info-options"> 
+              <div class="card-custom-cart-info-options-qty">
+                <span>Qty:</span> <%= item.quantity %>
+              </div>
+              <div class="card-custom-cart-info-options-delete"> 
+                <%= link_to "Delete", cart_cart_item_path(id: item.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %> 
+              </div>
+            </div>
+          </div>
 
-        <div class="card-custom-cart-price">   
-            <%= item.product.price*item.quantity%>
+          <div class="card-custom-cart-price">   
+            $<%= item.product.price * item.quantity %>
+          </div>
+        </div>
+      <% end %>
+      <div class= "text-end">
+        <div class="card-custom-cart-subtotal">  Subtotal: $<%= @subtotal %>  </div>
+        <div>
+          <%= link_to "Proceed to Checkout", new_user_purchase_path(@user), class: "card-custom-cart-checkout" %>
         </div>
       </div>
-    <% end %>
-    <div>
-      <div> 
-        <span> Subtotal: $<%= @subtotal %> </span>
 
-      </div>
-      <div>
-        <%= link_to "Proceed to Checkout", new_user_purchase_path(@user)%>
-        
-      </div>
-    
     </div>
-
-  </div>
-
-
+   <% end%>
 </div>
-
-
-

@@ -198,6 +198,8 @@ body, html{
 .card-custom-cart{
     height: 250px;
     width:  100%;
+    border: 2px solid #f5f5f5;
+    padding: 1rem;
 }
 
 .card-custom-cart-image{
@@ -247,8 +249,24 @@ body, html{
 .card-custom-cart-info-options{
     display: flex;
     height: auto;
+    gap: 1rem;
     
 }
+
+.card-custom-cart-info-options span{
+    color: rgb(170, 174, 177);
+}
+
+
+
+.card-custom-cart-subtotal{
+    font-size: 1.5rem;
+    color: black;
+}
+.card-custom-cart-checkout{
+    font-size: 1rem;
+}
+
 
 
 
@@ -402,7 +420,6 @@ body, html{
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(300px,auto));
     justify-items: stretch;
-    // align-items: end;
     gap: 1rem;
         
 }
@@ -428,6 +445,3 @@ body, html{
     font-weight: 500;
 }
 
-.custom-category-card-bottom-name{
-
-}
