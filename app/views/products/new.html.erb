@@ -25,6 +25,16 @@
                     <%= form.label :name, class: "form-label" %>
                     <%= form.text_field :name,  class: "form-control"%>
                 </div>
+                <div class="mb-3">
+                    <%= form.label :brand, class: "form-label" %>
+                    <%= form.text_field :brand,  class: "form-control"%>
+                </div>
+                 <div class="mb-3">
+                    <%= form.label :quantity, class: "form-label" %>
+                    <%= form.number_field :quantity,  class: "form-control"%>
+                </div>
+
+
 
                 <div class="mb-3">
                     <%= form.label :category, class: "form-label" %>
@@ -44,8 +54,13 @@
                 </div>
 
                 <div>
-                    <%= form.label :description, class: "form-label" %>
-                    <%= form.text_area :description, class: "form-control" %>
+                    <%= form.label :description_1, class: "form-label" %>
+                    <%= form.text_area :description_1, class: "form-control" %>
+                </div>
+
+                <div>
+                    <%= form.label :description_2, class: "form-label" %>
+                    <%= form.text_area :description_2, class: "form-control" %>
                 </div>
             <% end %>
         </div>
