@@ -13,9 +13,9 @@
 }
 
 
-*{
-    outline: 1px solid red;
-}
+// *{
+//     outline: 1px solid red;
+// }
 
 
 
@@ -90,7 +90,6 @@ body, html{
     
 }
 
-
 .card-custom-main-page-bottom{
     height: 20%;
     display: flex;
@@ -113,6 +112,18 @@ body, html{
     justify-content: center;
     align-items: baseline;
 }
+
+
+.custom-home-subtitles{
+    text-decoration: none;
+    color: #007185;
+    
+}
+
+.custom-home-subtitles:hover{
+    color: #004f5d;
+}
+
 
 
 // SHOW PRODUCT
@@ -381,4 +392,42 @@ body, html{
 .card-review-form-buttons button{
     margin-bottom: 1rem;
     width: 80%;
+}
+
+
+// SHOW CATEGORY PRODUCTS (INDEX)
+
+
+.custom-category-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,auto));
+    justify-items: stretch;
+    // align-items: end;
+    gap: 1rem;
+        
+}
+
+.custom-category-card{
+    border: 2px solid #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem ;
+}
+
+.custom-category-card-image{
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.custom-category-card-bottom-price{
+    width: 30%;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.custom-category-card-bottom-name{
+
 }

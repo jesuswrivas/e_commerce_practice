@@ -5,21 +5,18 @@
   <%= @category.name%>
   </h2>
 
-  <div class="d-flex flex-row">
+  <div class="custom-category-container">
     <% @products.each do |product| %>
-      <div class="card-custom-main-page">
-        <div class="card-custom-main-page-top">
-
-        
+      <div class="custom-category-card">
+        <div class="custom-category-card-top">
           <%= link_to product_path(product) do %>
-            <%= image_tag product.image, alt: "Product Image", class: "card-custom-image" %>
+            <%= image_tag product.image.variant(resize_to_limit: [300,300]).processed, class: "custom-category-card-image" %>
           <% end %>
-              
 
         </div>
-        <div class="card-custom-main-page-bottom">
-          <p class="card-custom-text"><%= product.price %> $</p>
-          <p class="card-custom-text text-center"><%= product.name %></p>
+        <div class="custom-category-card-bottom">
+          <div class="custom-category-card-bottom-price">$<%=product.price%></div>
+          <div class="custom-category-card-bottom-name"><%=product.name%></div>
         </div>
       </div>
     <% end %>

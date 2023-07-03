@@ -13,7 +13,8 @@
     
     <% Category.ids.each do |id|%>
       <div class="container-fluid py-2 w-100 mt-5 mb-5">
-        <h4 class="font-weight-light">  <%= Category.find_by(id: id).name%> </h4>
+        <h4><%=link_to Category.find_by(id: id).name, category_products_path(id),
+        class: "custom-home-subtitles"%></h4>
           <%= render partial: "shared/items-horizontal", locals: { products_array: Category.get_items_by_category(id,7)} %>
       </div>
     
