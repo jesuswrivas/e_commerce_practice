@@ -27,7 +27,9 @@ class PurchasesController < ApplicationController
 
     def index
       @user = current_user
-      @purchase_list = @user.get_all_purchase_products  
+
+      @purchase_list = @user.get_all_purchase_products.paginate(:page => params[:page], :per_page => 5)
+
     end
          
 

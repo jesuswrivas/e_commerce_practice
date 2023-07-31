@@ -48,6 +48,7 @@ gem 'cssbundling-rails' # Install bootstrap 5
 
 
 gem "letter_opener", group: :development
+gem 'will_paginate', '~> 4.0'
 
 
 # Use Sass to process CSS
