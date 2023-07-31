@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(id: session[:user_id])
+        @user = current_user
         @purchase_product = PurchaseProduct.find_by(id: params[:purchase_product_id]) 
 
 

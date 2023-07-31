@@ -7,9 +7,9 @@
 
   <div class="container-fluid d-flex justify-content-end">
 
-    <% if session[:user_id]%>
+    <% if user_signed_in?%>
          <span>Logged in as :  
-        <b><%= User.find_by(id:(session[:user_id])).name%></b>
+        <b><%= current_user.name%></b>
         </span>
         <% else %>
          <span>Logged in as :  
@@ -71,7 +71,7 @@
 
        <li class="nav-item">
           <div class="container">
-            <% if session[:user_id] %>
+            <% if user_signed_in? %>
               <%= link_to cart_path, class: "navbar-link-custom" do%>
               <i class="bi bi-cart-fill"></i>
               <%end%>
@@ -80,8 +80,8 @@
         </li>
 
          <li class="nav-item">
-          <% if session[:user_id] %>
-            <%= link_to "Profile", user_profile_path(session[:user_id]), class: "navbar-link-custom" %>
+          <% if user_signed_in? %>
+            <%= link_to "Profile", user_profile_path(current_user.id), class: "navbar-link-custom" %>
           <% end %>   
         </li>
 
@@ -89,7 +89,7 @@
 
 
         <li class="nav-item">
-           <% if session[:user_id]%>
+           <% if user_signed_in?%>
               <%= link_to "Log out", log_out_path, class: "navbar-link-custom", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>      
            <% else %>
             <%= link_to "Log in", log_in_path, class: "navbar-link-custom"  %>

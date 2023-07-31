@@ -6,8 +6,7 @@ class CartItemsController < ApplicationController
     end
 
     def create
-        
-        @user = User.find_by(id: (session[:user_id]))
+        @user = current_user
         @cart = @user.cart
         @product_id = cart_item_params[:product_id]
         @product = Product.find_by(id: @product_id)

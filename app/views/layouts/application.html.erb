@@ -18,10 +18,17 @@
 
   <body class="d-flex flex-column" > 
 
-
   <header>
   <%= render partial: 'shared/navbar' %>
     </header>
+
+  <% if flash[:notice]%>
+    <%= render partial: "shared/notice" %> 
+  <% end%>
+  <% if flash[:alert]%>
+    <%= render partial: "shared/alert" %> 
+  <% end%>
+
 
     <main class= "main-body">
     

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    skip_before_action :require_login, only: [:new, :create]
+
 
     def new
     end
@@ -26,5 +28,5 @@ class SessionsController < ApplicationController
         redirect_to root_path, notice: 'Logged out successfully.'
       end
 
-     
-end
+    
+ end

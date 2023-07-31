@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
     def personal_info
-        @user = User.find_by(id:(session[:user_id]))
+        @user = current_user
     end
 
     def cards
@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
     end
 
     def profile
-        @user = User.find_by(id:(session[:user_id]))
+        @user = current_user
     end
 
 end

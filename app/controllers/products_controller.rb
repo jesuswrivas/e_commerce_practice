@@ -1,7 +1,12 @@
 class ProductsController < ApplicationController
 
+    skip_before_action :require_login, only: [:show, :index]
+
+
+
+
     def show
-        @user = User.find_by(id: session[:user_id])
+        @user = current_user
         @new_cart_item = CartItem.new
         @product = Product.find_by(id: params[:id])
         @latest_5_category_products = Product.where(category: @product.category).order(id: :desc).limit(5)

@@ -1,14 +1,14 @@
 class PurchasesController < ApplicationController
 
     def new
-      @user = User.find_by(id: session[:user_id])
+      @user = current_user
       @cart_items = CartItem.where(cart_id: @user.cart.id)
       @subtotal = @user.cart.subtotal
     end
 
 
     def create
-      @user = User.find_by(id: session[:user_id])
+      @user = current_user
       @cart_items = CartItem.where(cart_id: @user.cart.id)
       @subtotal = @user.cart.subtotal
 
@@ -26,7 +26,7 @@ class PurchasesController < ApplicationController
 
 
     def index
-      @user = User.find_by(id: session[:user_id])
+      @user = current_user
       @purchase_list = @user.get_all_purchase_products  
     end
          
