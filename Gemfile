@@ -47,6 +47,9 @@ gem 'jsbundling-rails'  # needed for bootstrap javascript
 gem 'cssbundling-rails' # Install bootstrap 5
 
 
+gem "letter_opener", group: :development
+
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

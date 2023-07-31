@@ -16,21 +16,28 @@ class UsersController < ApplicationController
     def create
         @user= User.new(user_params)
         @profile = Profile.new(profile_params)
-   
-        if @user.save 
-            @user.build_profile(name:@user.name, email:@user.email)
-            @user.profile.save
-            @user.build_cart
-            @user.cart.save
 
-            redirect_to root_path, notice: "User created succesfully"
-        else
-            flash[:alert] = "Please check the text fields for any error"
-            render :new, status: :unprocessable_entity
+        
+        respond_to do |format|
+            if @user.save 
+                @user.build_profile(name:@user.name, email:@user.email)
+                @user.profile.save
+                @user.build_cart
+                @user.cart.save
+
+                # Tell the UserMailer to send a welcome email after save
+                UserMailer.with(user: @user).welcome_email.deliver_later
+
+                redirect_to root_path, notice: "User created succesfully"
+            else
+                flash[:alert] = "Please check the text fields for any error"
+                render :new, status: :unprocessable_entity
+            end
         end
-
-
     end
+
+
+
     
 
     def edit
