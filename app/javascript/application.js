@@ -2,4 +2,5 @@
 import "@hotwired/turbo-rails"
 import "./controllers/hello_controller.js";
 import { application } from "./application";
-import * as bootstrap from "bootstrap"
+import * as bootstrap from "bootstrap";
+import "./custom.js";
