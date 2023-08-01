@@ -15,34 +15,35 @@
 
         <div class="row text-center">
           <div class="col">
-
-            <div class="row">
-              <div class="col-2"> Purchase ID </div>
-              <div class="col-1"> Qty </div>
-              <div class="col-2"> Total Cost </div>
-              <div class="col-6"> Item </div>
-              <div class="col-1"> Review</div>
-            </div>   
+          <table class="table table-hover ">
+            <thead>
+              <tr>
+                <th>Purchase ID </th>
+                <th>Qty </th>
+                <th>Total Cost</th>
+                <th>Item</th>
+                <th>Review</th>
+             </tr> 
+            </thead>
                                        
-          
-
-            <% @purchase_list.each do |purchase|%> 
-            <div class="row">
-              <div class="col-2 text-center"><%= purchase.purchase_id%></div>
-              <div class="col-1 text-center"><%= purchase.item_qty%></div>
-              <div class="col-2 text-center"><%= purchase.item_price * purchase.item_qty%></div>
-              <div class="col-6 text-center"><%= purchase.product.name%></div>     
-              <div class="col-1 text-center">
-              <% if purchase.review_id%>
-               <%= purchase.review_id%>
-              <%else %>
-              <%= link_to "Review Item",  new_purchase_product_review_path(purchase.id)%>
-              <% end %>
-              
-              </div>     
-            </div>
-            <% end%>
-
+            <tbody>
+              <% @purchase_list.each do |purchase|%> 
+               <tr>
+                <td><%= purchase.purchase_id%></td>
+                <td><%= purchase.item_qty%></td>
+                <td><%= purchase.item_price * purchase.item_qty%></td>
+                <td><%= link_to purchase.product.name,  purchase.product, data: { turbo_frame: "_top" }%></td>
+                <td>
+                    <% if purchase.review_id%>
+                    <%= purchase.review_id%>
+                    <%else %>
+                    <%= link_to "Review Item",  new_purchase_product_review_path(purchase.id), data: { turbo_frame: "_top" }%>
+                    <% end %>
+                </td>      
+              </tr>
+              <% end%>
+          </tbody>
+          </table>
 
 
             <div class="digg_pagination d-flex justify-content-center mt-3">
@@ -52,11 +53,6 @@
 
           </div>     
         </div>
-
-
-        <div class="row text-center mt-5">
-             <div class="col">Seems like there are some items that you havent reviewed. Please let us know what you think!</div>
-        </div>   
 
       </div>
     </div>

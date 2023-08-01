@@ -13,9 +13,9 @@
 }
 
 
-// *{
-//     outline: 1px solid red;
-// }
+*{
+    outline: 1px solid red;
+}
 
 
 
@@ -444,6 +444,61 @@ body, html{
     font-size: 1.3rem;
     font-weight: 500;
 }
+
+
+
+
+
+
+
+
+
+
+//PROFILE
+
+
+.custom-nav-profile-left{
+    border-right: 1px solid  rgb(222, 226, 230);
+    
+}
+
+.custom-row{
+    min-height: 60vh;
+}
+
+
+.custom-profile__nav{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    
+    
+}
+
+
+.custom-profile__nav__item a{
+    font-weight: 500;
+    text-decoration: none;
+    color: #232F3E;
+    margin-left: 2rem;
+
+   
+}
+
+
+
+.custom-profile__nav__item {
+    list-style-type: none;
+    padding: 0.5rem 0;
+    
+   
+}
+
+.custom-profile__nav__item:hover {
+    background-color: #eaeded;
+   
+}
+
 
 
 

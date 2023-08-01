@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
                 raise ActiveRecord::Rollback
             end
          end
-         redirect_to root_path
+         redirect_to user_profile_path(current_user.id)
     end
 
 

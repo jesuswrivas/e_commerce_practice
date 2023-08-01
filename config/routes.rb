@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get "/cards", to: "profiles#cards"
       get "/personal_info", to: "profiles#personal_info"
       get "/security", to: "profiles#security"
+      get "/settings", to: "profiles#settings"
 
       resources :purchases, only: [:new, :create, :index]
   end

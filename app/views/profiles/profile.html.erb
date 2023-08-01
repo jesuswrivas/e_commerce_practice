@@ -1,22 +1,22 @@
-<div class="container-fluid pb-5">
-  <div class="row mt-5">
-    <div class="col-2">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"> <%= link_to "Profile", user_profile_path(current_user.id),
+
+  <div class="row mt-5 pe-5 custom-row">
+    <div class="col-2 custom-nav-profile-left g-0">
+      <ul class="custom-profile__nav">
+        <li class="custom-profile__nav__item"> <%= link_to "Profile", user_profile_path(current_user.id),
          data: { turbo_frame: "profile-info-window" }%> </li>
 
-        <li class="list-group-item"><%= link_to "Purchases",user_purchases_path(@user), data: { turbo_frame: "profile-info-window" } %></li>
-        <li class="list-group-item">Settings</li>
+        <li class="custom-profile__nav__item"><%= link_to "Purchases",user_purchases_path(@user), data: { turbo_frame: "profile-info-window" } %></li>
+        <li class="custom-profile__nav__item"><%= link_to "Settings", user_settings_path(@user), data: { turbo_frame: "profile-info-window" } %></li>
       </ul>
     </div>
     <div class="col-10 d-flex justify-content-start align-items-start">
     
 
-       <%= turbo_frame_tag "profile-info-window", class:"w-100 ms-5 pe-5" do %>
+       <%= turbo_frame_tag "profile-info-window", class:"w-100 ms-5" do %>
         <div class="row">
           <div class="col">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item d-flex justify-content-between align-items-start">
+              <li class="list-group-item d-flex justify-content-between align-items-start p-4">
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">
                     <%= link_to "Personal Data", user_personal_info_path(current_user.id), class:"text-decoration-none" %>
@@ -24,7 +24,7 @@
                   Manage your personal data
                 </div>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-start">
+              <li class="list-group-item d-flex justify-content-between align-items-start p-4">
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">
                     <%= link_to "Addresses", user_addresses_path(current_user.id), class:"text-decoration-none" %>
@@ -32,7 +32,7 @@
                   Manage your addresses
                 </div>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-start">
+              <li class="list-group-item d-flex justify-content-between align-items-start p-4">
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">
                     <%= link_to "Cards", user_cards_path(current_user.id), class:"text-decoration-none" %>
@@ -40,7 +40,7 @@
                   Manage your cards
                 </div>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-start">
+              <li class="list-group-item d-flex justify-content-between align-items-start p-4">
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">
                     <%= link_to "Security", user_security_path(current_user.id), class:"text-decoration-none" %>
@@ -57,4 +57,3 @@
 
     </div>
   </div>
-</div>

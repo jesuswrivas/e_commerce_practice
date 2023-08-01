@@ -18,4 +18,7 @@ class ProfilesController < ApplicationController
         @user = current_user
     end
 
+    def settings
+    end
+
 end

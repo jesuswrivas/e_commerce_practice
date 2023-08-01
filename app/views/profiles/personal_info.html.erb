@@ -9,6 +9,7 @@
                 <ul class="list-group list-group-flush">
                 <li class="list-group-item"> Email</li>
                 <li class="list-group-item">Account</li>
+                
                 </ul>
             </div>
             <div class="col-8 m-0 p-0">
@@ -28,6 +29,8 @@
                 <ul class="list-group list-group-flush">
                 <li class="list-group-item">Name</li>
                 <li class="list-group-item">Last Name</li>
+                <li class="list-group-item">DOB</li>
+                <li class="list-group-item">Country of Residence</li>
                 <li class="list-group-item">Phone Number</li>
                 <li class="list-group-item">Address 1</li>
                 <li class="list-group-item">Address 2</li>
@@ -35,11 +38,13 @@
             </div>
             <div class="col-8 m-0 p-0">
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%= @user.name %> </li>
+                <li class="list-group-item"><%= @user.name || "-"%> </li>
                 <li class="list-group-item"><%= @user.last_name %> </li>
-                <li class="list-group-item">-</li>
-                <li class="list-group-item">-</li>
-                <li class="list-group-item">-</li>
+                <li class="list-group-item"><%= @user.profile.date_of_birth || "No info available" %> </li>
+                <li class="list-group-item"><%= @user.profile.country || "No info available" %> </li>
+                <li class="list-group-item"> <%= @user.profile.country || "No info available" %>  </li>
+                <li class="list-group-item"> <%= @user.profile.country || "No info available" %> </li>
+                <li class="list-group-item"><%= @user.profile.country || "No info available" %> </li>
                 </ul>
             </div>
         </div>
