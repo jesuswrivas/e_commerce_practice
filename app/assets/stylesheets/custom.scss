@@ -13,9 +13,9 @@
 }
 
 
-*{
-    outline: 1px solid red;
-}
+// *{
+//     outline: 1px solid red;
+// }
 
 
 
@@ -551,3 +551,17 @@ body, html{
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; }
+
+    //ABOUT US
+
+
+.about-us-container{
+    background-color: #ECF7FE;
+    width: 100%;
+    padding: 3rem 0;
+    
+}
+
+.about-us-container{
+    color: #232F3E;
+}
