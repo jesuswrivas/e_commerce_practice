@@ -8,7 +8,7 @@
     
     
     <div class="container border p-5 shadow-sm rounded">
-        <%= form_with model: @user, id: "new_user_form", local: true do |form| %>  
+      <%= form_with model: @user, id: "new_user_form", local: true, data: {turbo: false } do |form| %>  
 
         <div class="row mb-4">
             <div class="col-6">

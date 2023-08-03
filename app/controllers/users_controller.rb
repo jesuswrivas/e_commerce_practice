@@ -28,12 +28,17 @@ class UsersController < ApplicationController
                 @user.cart.save
 
                 # Tell the UserMailer to send a welcome email after save
-                UserMailer.with(user: @user).welcome_email.deliver_later
+               # UserMailer.with(user: @user).welcome_email.deliver_later
 
-                redirect_to root_path, notice: "User created succesfully"
+               format.html { redirect_to root_path, 
+               notice: "User created successfully" }
+
+
             else
                 flash[:alert] = "Please check the text fields for any error"
-                render :new, status: :unprocessable_entity
+                format.html { render :new, 
+                status: :unprocessable_entity }
+
             end
         end
     end
