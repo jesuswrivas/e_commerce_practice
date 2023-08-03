@@ -8,9 +8,39 @@
 
     <div class="row mt-5">
         <div class="col">
-            <p>   This section is intentionally left empty.  </p>
+
+      
+
+
+         <ul class="list-group list-group-flush">
+             <li class="list-group-item d-flex justify-content-between align-items-start p-4">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">
+                     <%= link_to "Delete Account", user_path(current_user.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your account?", turbo_frame: "_top" } %>
+                  </div>
+                  Delete your account, purchase history and reviews
+                </div>
+              </li>
+            </ul>
+
+                
         </div>
     </div>
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

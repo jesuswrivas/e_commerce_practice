@@ -57,8 +57,11 @@ class UsersController < ApplicationController
 
 
     def destroy
-
+        @user = current_user
+        @user.destroy
+        redirect_to root_path, notice: "Account deleted successfully"
     end
+      
 
 
     private
