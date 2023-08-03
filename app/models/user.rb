@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-    has_many :reviews
-    has_many :purchases
-    has_one :profile
-    has_one :cart
+    has_many :reviews, dependent: :destroy
+    has_many :purchases, dependent: :destroy
+    has_one :profile, dependent: :destroy
+    has_one :cart, dependent: :destroy
 
 
 
