@@ -13,9 +13,9 @@
 }
 
 
-// *{
-//     outline: 1px solid red;
-// }
+*{
+    outline: 1px solid red;
+}
 
 
 
@@ -35,6 +35,34 @@ body, html{
     background-color: #232F3E;
     padding: 1rem;
 }
+
+/* Add media query for screens around 500px */
+@media (max-width: 900px) {
+    .navbar--custom__bottom {
+        flex-direction: column;
+        
+    }
+    .navbar--custom__bottom div {
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .navbar--custom__bottom ul {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar--custom__top{
+        flex-direction: column;
+       
+    }
+    .navbar--custom__top div {
+        justify-content: center !important;
+        align-items: center !important;
+    }
+}
+
+
+
 
 .navbar--custom__bottom:hover{
     cursor: pointer;
