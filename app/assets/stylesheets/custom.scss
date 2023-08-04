@@ -629,9 +629,7 @@ body, html{
 /* Add media query for screens around 500px */
 @media (max-width: 576px) {
 
-
-  
-    .custom-profile__nav{
+      .custom-profile__nav{
         display: flex;
         flex-direction: row;
         justify-content: space-between;

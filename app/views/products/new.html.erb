@@ -1,70 +1,73 @@
-<div class="container-fluid w-25">
-
-    <div class="row p-3">
-
-        <h5>Select your image</h5>
-        <div class="col border w-100 text-center">
-            <% if @product.image.attached? %>
-                <%= image_tag @product.image.variant(resize: "200x200") %>
-            <% else %>
-              <%= image_tag "default_image.png", alt: "Default Image" %>
-            <% end %>         
-        </div>
-
-    </div>
-
-    
-    <div class="row p-3">
-        <div class="col">
-            <%= form_with(model: @product, id: "new_product_form") do |form| %>
-                 <div class="mb-3 text-center">
-                    <%= form.file_field :image %> <br>
-                </div>
-                <h5>Product information</h5>
-                <div class="mb-3">
-                    <%= form.label :name, class: "form-label" %>
-                    <%= form.text_field :name,  class: "form-control"%>
-                </div>
-                <div class="mb-3">
-                    <%= form.label :brand, class: "form-label" %>
-                    <%= form.text_field :brand,  class: "form-control"%>
-                </div>
-                 <div class="mb-3">
-                    <%= form.label :quantity, class: "form-label" %>
-                    <%= form.number_field :quantity,  class: "form-control"%>
-                </div>
+<div class="container-fluid ">
 
 
 
-                <div class="mb-3">
-                    <%= form.label :category, class: "form-label" %>
-                    <%= form.select :category_id, options_from_collection_for_select(@categories, :id, :name), {}, class: "form-select" %>
-                </div>
-
-                <div class="mb-3">
-                    <%= form.label :price, class: "form-label" %>
-                    <div class="row align-items-center">
-                        <div class="col-auto">
-                            <%= form.text_field :price,  class: "form-control"%>
-                        </div>
-                        <div class="col-auto">
-                            <span class="form-text">  USD </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <%= form.label :description_1, class: "form-label" %>
-                    <%= form.text_area :description_1, class: "form-control" %>
-                </div>
-
-                <div>
-                    <%= form.label :description_2, class: "form-label" %>
-                    <%= form.text_area :description_2, class: "form-control" %>
-                </div>
-            <% end %>
+    <div class="container">
+        <div class="row p-3 w-100  d-flex justify-content-center">
+            <div class="col-12 col-md-6 border text-center">
+            <h5>Select your image</h5>
+                <% if @product.image.attached? %>
+                    <%= image_tag @product.image.variant(resize: "200x200") %>
+                <% else %>
+                  <%= image_tag "default_image.png", alt: "Default Image" %>
+                <% end %>
+            </div>
         </div>
         
+        <div class="row p-3 w-100 d-flex justify-content-center">
+            <div class="col-12 col-md-6 p-4">
+                <%= form_with(model: @product, id: "new_product_form") do |form| %>
+                     <div class="mb-3 text-center">
+                        <%= form.file_field :image %> <br>
+                    </div>
+                    <h5>Product information</h5>
+                    <div class="mb-3">
+                        <%= form.label :name, class: "form-label" %>
+                        <%= form.text_field :name,  class: "form-control"%>
+                    </div>
+                    <div class="mb-3">
+                        <%= form.label :brand, class: "form-label" %>
+                        <%= form.text_field :brand,  class: "form-control"%>
+                    </div>
+                     <div class="mb-3">
+                        <%= form.label :quantity, class: "form-label" %>
+                        <%= form.number_field :quantity,  class: "form-control"%>
+                    </div>
+                    <div class="mb-3">
+                        <%= form.label :category, class: "form-label" %>
+                        <%= form.select :category_id, options_from_collection_for_select(@categories, :id, :name), {}, class: "form-select" %>
+                    </div>
+                    <div class="mb-3">
+                        <%= form.label :price, class: "form-label" %>
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <%= form.text_field :price,  class: "form-control"%>
+                            </div>
+                            <div class="col-auto">
+                                <span class="form-text">  USD </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <%= form.label :description_1, class: "form-label" %>
+                        <%= form.text_area :description_1, class: "form-control" %>
+                    </div>
+                    <div>
+                        <%= form.label :description_2, class: "form-label" %>
+                        <%= form.text_area :description_2, class: "form-control" %>
+                    </div>
+                <% end %>
+            </div>
+        
+        </div>
+         <div class="row w-100 d-flex justify-content-center">
+             <div class="col text-center col-12 col-md-6">
+                 <%= button_tag("Create Product", type: "submit",
+                 form: 'new_product_form', class: "btn btn-primary") %>
+             </div>
+         </div>
     </div>
-     <%= button_tag("Create Product", type: "submit", form: 'new_product_form', class: "btn btn-primary") %>
+
+
+
 </div>

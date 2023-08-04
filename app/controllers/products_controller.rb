@@ -37,8 +37,9 @@ class ProductsController < ApplicationController
 
         @product = Product.new(product_params)
         if @product.save
-            redirect_to home_path
+            redirect_to new_product_path, notice: "Product created succesfully"
         else
+            flash.now[:alert] = "Something went wrong. Check the fields"
             render :new, status: :unprocessable_entity
         end
     end
