@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
       !current_user.nil?
     end
 
+   
 
     def require_login
       unless user_signed_in?
@@ -27,9 +28,20 @@ class ApplicationController < ActionController::Base
         redirect_to log_in_path 
       end
     end
+    
 
+    def user_admin?
+      current_user.role == "admin"
+    end
 
+    def require_admin
+      unless user_signed_in? && user_admin?
+        flash[:alert] = "You are not authorized to perform this action"
+        redirect_to root_path
+      end
+    end
 
+    
   end
 
   

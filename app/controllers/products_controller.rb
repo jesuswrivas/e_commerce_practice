@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
 
     skip_before_action :require_login, only: [:show, :index]
-
-
+    before_action :require_admin, only: [:new, :create]
 
 
     def show
