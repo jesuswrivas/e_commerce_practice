@@ -1,29 +1,38 @@
 
-<div class="container-fluid d-flex flex-column w-25 p-5 mt-5 border">
+<div class="container-fluid d-flex justify-content-center">
+
+
+  <div class="row mt-5">
     
-    <div class="container text-center mb-5">
-        <h5>Hello! Enter your e-mail and password</h5>
+    <div class="col border">
+      <div class="container text-center mt-3 p-3 w-75">
+          <h5>Hello! Enter your e-mail and password</h5>
+      </div>
+      
+      <div class="container p-5 ">
+          <%= form_with(url: sessions_path, method: :post) do |form| %>
+      
+            <div>
+              <%= form.label :email,  class: "form-label" %>
+              <%= form.email_field :email,  class: "form-control" %>
+            </div>
+            <div>
+              <%= form.label :password,  class: "form-label" %>
+              <%= form.password_field :password,  class: "form-control" %>
+            </div>
+            <div>
+              <%= form.submit 'Log In', class:"btn btn-primary mt-5 w-100 py-3"%>
+              <%= link_to "Create Account", new_user_path, class: "btn btn-light mt-2 w-100 py-3" %>
+            </div>
+      
+      
+          <% end %>
+      </div>
     </div>
 
-    
-    <div class="container">
-        <%= form_with(url: sessions_path, method: :post) do |form| %>
-    
-          <div>
-            <%= form.label :email,  class: "form-label" %>
-            <%= form.email_field :email,  class: "form-control" %>
-          </div>
-          <div>
-            <%= form.label :password,  class: "form-label" %>
-            <%= form.password_field :password,  class: "form-control" %>
-          </div>
-          <div>
-            <%= form.submit 'Log In', class:"btn btn-primary mt-5 w-100 py-3"%>
+  </div>
 
-            <%= link_to "Create Account", new_user_path, class: "btn btn-light mt-2 w-100 py-3" %>
-          </div>
-    
-    
-        <% end %>
-    </div>
+
+
+
 </div>

@@ -1,10 +1,10 @@
 <%= turbo_frame_tag 'profile-info-window' do %>
 
-<div class="container-fluid">
+<div class="container-fluid overflow-scroll">
   
   <div class="row">
    
-    <div class="col-10">
+    <div class="col">
       <div class="container">
         
         <div class="row mb-5">
@@ -46,7 +46,7 @@
           </table>
 
 
-            <div class="digg_pagination d-flex justify-content-center mt-3">
+            <div class="digg_pagination d-flex justify-content-center mt-3 ">
               <%= will_paginate @purchase_list, :container => false %>
             </div>
 

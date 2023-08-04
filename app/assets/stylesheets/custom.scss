@@ -106,22 +106,24 @@ body, html{
 
 
 .card-custom-main-page{
-    min-height: 300px;
+    min-height: 75%;
     min-width: 300px;
     max-width: 350px;
     margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
 }
 
-
 .card-custom-main-page-top{
-    height: 300px;
+    height: auto;
     width: 100%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 
 .card-custom-image{
     height: auto;
@@ -131,17 +133,26 @@ body, html{
 }
 
 .card-custom-main-page-bottom{
-    height: 20%;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    
+    
 }
-
 
 .card-custom-main-page-bottom-price{
     width: 30%;
     font-size: 1.3rem;
     font-weight: 500;
+}
+
+
+.card-custom-main-page-bottom-name p{
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
 }
 
 
@@ -163,6 +174,80 @@ body, html{
 .custom-home-subtitles:hover{
     color: #004f5d;
 }
+
+
+
+@media (max-width: 900px) {
+
+
+    .custom-horizontal-list{
+        height: 200px;
+    }
+    
+    .card-custom-main-page{
+        min-height: 75%;
+        min-width: 200px;
+        max-width: 250px;
+        margin-right: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .card-custom-main-page-top{
+        height: 80%;
+        width: 100%;
+    }
+    
+    
+    .card-custom-main-page-bottom{
+        height: 20%;
+        overflow: hidden;
+        justify-content: space-around;
+    }
+
+
+    .card-custom-main-page-bottom-price{
+        width: 30%;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .card-custom-main-page-bottom-name{
+        font-size: 0.7rem;
+        overflow: hidden;
+        height: 1rem;
+        
+    }
+    
+    .card-custom-main-page-bottom-name p{
+        font-size: 0.7rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -538,6 +623,36 @@ body, html{
     background-color: #eaeded;
    
 }
+
+
+
+/* Add media query for screens around 500px */
+@media (max-width: 576px) {
+
+
+  
+    .custom-profile__nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+    .custom-profile__nav__item{
+        flex: 1;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
