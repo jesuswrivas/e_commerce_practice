@@ -1,15 +1,15 @@
-#Amazoneo E-Commerce Application
-#Overview
+# Amazoneo E-Commerce Application
+# Overview
 
 Amazoneo is an e-commerce application built for training purposes, following the TOP course: https://www.theodinproject.com/. 
 Its an ongoing work that allows me to add features whenever I need to practice Rails a bit. You can register fast enough, there is no confirmation email and if you want you can
 delete the account in profile/settings
 
 
-Setup & Deployment
+# Setup & Deployment
 The application is currently running on a Linode server: http://139.144.55.89/
 
-Technologies Used
+# Technologies Used
 
 Ruby on Rails.
 SQLite3: (Migration pending!)
@@ -20,7 +20,7 @@ Bcrypt: For authentication.
 The images are being handled by Rails Active Storage
 
 
-Features
+# Features
 User Authentication: Users can sign up, log in, and log out. Only the admins can create a new product
 Product Management: Admin users can add new products. All users can view product details.
 Cart Management: Users can add products to their cart and proceed to checkout.
@@ -33,8 +33,9 @@ Install the required gems using bundle install.
 Set up the database using rails db:migrate.
 Start the server using rails server.ta:
 
-GET /api/v1/products: Fetches all products.
-GET /api/v1/products/:id: Fetches details of a specific product.
+API Endpoints
 
+- `GET /api/v1/products`: Fetches all products.
+- `GET /api/v1/products/:id`: Fetches details of a specific product.
 
 
